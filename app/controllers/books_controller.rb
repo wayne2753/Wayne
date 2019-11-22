@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+    before_action :find_book, only:[:show, :edit, :update, :destroy]
     def index
         @book = Book.all
     end
@@ -7,7 +8,7 @@ class BooksController < ApplicationController
     end
     def create 
         @book = Book.new(book_params)
-        if @book.save
+            if @book.save
             redirect_to root_path, notice: "新增書本成功"
         else
             render :new #借new.html.erb 用這個較合適 不會清空欄位 借畫面渲染
@@ -17,13 +18,15 @@ class BooksController < ApplicationController
 
 
     def edit
-        @book = Book.find(params[:id])
+        # find_book
+        # @book = Book.find(params[:id])
         #@book = Book.find_by(id: params["id"]) 這也可以 但照ruby寫法 寫上面較好
     end
 
 
     def update
-        @book = Book.find(params[:id])
+        # find_book
+        # @book = Book.find(params[:id])
         if @book.update(book_params)
             redirect_to root_path, notice: '更新成功'
         else
@@ -32,13 +35,19 @@ class BooksController < ApplicationController
     end
 
     def destroy
-        @book = Book.find(params[:id])
+        # find_book
+        # @book = Book.find(params[:id])
         @book.destroy
         redirect_to root_path, notice: '資料已刪除'
     end
 
 
     def  show
+        # find_book
+        # @book = Book.find(params[:id])
+    end
+
+    def find_book
         @book = Book.find(params[:id])
     end
 
