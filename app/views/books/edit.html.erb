@@ -1,12 +1,5 @@
-<h1>新增書本</h1>
+<h1>編輯書本 <%= @book.title %> </h1>
 
-<% if @book.errors.any?%>
-    <ul>
-        <%@book.errors.full_messages.each do |messages|%>
-            <li><%= messages%></li>
-        <%end%>
-    </ul>
-<%end%>
 
 <%= form_for(@book) do |form| %>
     <%= form.label :title, '標題' %>

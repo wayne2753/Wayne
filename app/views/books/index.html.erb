@@ -2,3 +2,14 @@
 <h1>書本列表</h1>
 
 <%= link_to "新增書本", new_book_path %>
+
+
+<ul>
+<% @book.each do |book|%>
+<li>
+<%= link_to book.title, book_path(book)%>
+<%= link_to "編輯", edit_book_path(book)%>
+<%= link_to "刪除", book_path(book), method: :delete, data: {confirm:'確定嗎？'} %>
+</li>
+<%end%>
+</ul>
