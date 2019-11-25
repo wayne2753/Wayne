@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
     before_action :find_book, only:[:show, :edit, :update, :destroy]
     def index
-        @book = Book.all
+        @book = Book.all.where(on_sell: true).with_attached_cover_img
     end
     def new
         @book = Book.new
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
     private
     def book_params
         # strong parameters 強參數
-        params.require(:book).permit(:title,:description, :list_price, :sell_price, :page_num, :isbn, :isbn13)
+        params.require(:book).permit(:title,:description, :list_price, :sell_price, :page_num, :isbn, :isbn13,:cover_img, :on_sell, :published_at)
         
     end
 end
