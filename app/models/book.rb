@@ -5,6 +5,7 @@ class Book < ApplicationRecord
 
 
     has_one_attached :cover_img
+    belongs_to :publisher
 end
 # class Book < ApplicationRecord
 #     validates :title, presence: true

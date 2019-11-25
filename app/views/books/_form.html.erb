@@ -9,8 +9,8 @@
 <%= form_for(@book) do |form| %>
 <div class="field">
 
-
-    <%= image_tag book.cover_img if book.cover_img.attached? %>
+    <%=cover_img_tag book%>
+    <%# <%= image_tag book.cover_img if book.cover_img.attached? %>
     <%= form.label :cover_img, '封面', class:"label"%>
     <%= form.file_field :cover_img, class:"input"%>
 </div>
