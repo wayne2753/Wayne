@@ -1,7 +1,8 @@
 class BooksController < ApplicationController
     before_action :find_book, only:[:show, :edit, :update, :destroy]
     def index
-        @book = Book.all.where(on_sell: true).with_attached_cover_img
+        @book = Book.all.where(on_sell: true).with_attached_cover_img.page(1).per(3)
+        
     end
     def new
         @book = Book.new
@@ -28,7 +29,7 @@ class BooksController < ApplicationController
         # find_book
         # @book = Book.find(params[:id])
         if @book.update(book_params)
-            redirect_to root_path, notice: '更新成功'
+            redirect_to edit_book_path(@book), notice: '更新成功'
         else
             render :edit
         end
@@ -54,7 +55,7 @@ class BooksController < ApplicationController
     private
     def book_params
         # strong parameters 強參數
-        params.require(:book).permit(:title,:description, :list_price, :sell_price, :page_num, :isbn, :isbn13,:cover_img, :on_sell, :published_at)
+        params.require(:book).permit(:title,:description, :list_price, :sell_price, :page_num, :isbn, :isbn13,:cover_img, :on_sell, :published_at, :publisher_id)
         
     end
 end

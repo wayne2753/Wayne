@@ -6,6 +6,9 @@ class Book < ApplicationRecord
 
     has_one_attached :cover_img
     belongs_to :publisher
+
+    scope :available, -> { where(:on_sell => true).where('list_price > 0')}
+    # Ex:- scope :active, -> {where(:active => true)}匿名函數
 end
 # class Book < ApplicationRecord
 #     validates :title, presence: true

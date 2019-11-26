@@ -8,20 +8,31 @@
 
 <%= form_for(@book) do |form| %>
 <div class="field">
-
     <%=cover_img_tag book%>
     <%# <%= image_tag book.cover_img if book.cover_img.attached? %>
     <%= form.label :cover_img, '封面', class:"label"%>
     <%= form.file_field :cover_img, class:"input"%>
 </div>
 <br>
-<div class="field">
-    <%= form.label :title, '標題', class:"label"%>
-    <%= form.text_field :title, class:"input"%>
-</div>
+<div class="columns">
+	<div class="column is-8">
+		<div class="field">
+    	<%= form.label :title, '標題', class:"label"%>
+    	<%= form.text_field :title, class:"input"%>
+    </div>
+	</div>
+		<div class="column is-4">
+			<div class="field">
+    		<%= form.label :publisher_id, '出版社', class:"label"%>
+    		<div class="select is-fullwidth">
+    			<%= form.collection_select :publisher_id, Publisher.available, :id, :name %>
+  			</div>
+    	</div>
+		</div>
+	</div>
+
 <br>
 <div class="field">
-
     <%= form.label :description, '內容',class:"label"%>
     <%= form.text_area :description, class:"input"%>
 </div>
