@@ -6,7 +6,7 @@
 </ul>
 <%end%>
 
-<%= form_for(@book) do |form| %>
+<%= form_for([:admin,book]) do |form| %>
 <div class="field">
     <%=cover_img_tag book%>
     <%# <%= image_tag book.cover_img if book.cover_img.attached? %>

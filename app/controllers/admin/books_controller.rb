@@ -1,5 +1,7 @@
 class Admin::BooksController < ApplicationController
     before_action :authenticate_user!
+    before_action :find_book, only:[:show, :edit, :update, :destroy]
+
 
     layout 'backend'
 
@@ -15,7 +17,7 @@ class Admin::BooksController < ApplicationController
     def create 
         @book = Book.new(book_params)
             if @book.save
-            redirect_to root_path, notice: "新增書本成功"
+            redirect_to admin_book_path, notice: "新增書本成功"
         else
             render :new #借new.html.erb 用這個較合適 不會清空欄位 借畫面渲染
             # redirect_to new_book_path, notice: "新增書本失敗"  #直接轉址
@@ -34,7 +36,7 @@ class Admin::BooksController < ApplicationController
         # find_book
         # @book = Book.find(params[:id])
         if @book.update(book_params)
-            redirect_to edit_book_path(@book), notice: '更新成功'
+            redirect_to edit_admin_book_path(@book), notice: '更新成功'
         else
             render :edit
         end
@@ -44,7 +46,7 @@ class Admin::BooksController < ApplicationController
         # find_book
         # @book = Book.find(params[:id])
         @book.destroy
-        redirect_to root_path, notice: '資料已刪除'
+        redirect_to admin_book_path, notice: '資料已刪除'
     end
 
 
