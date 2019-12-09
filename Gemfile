@@ -21,7 +21,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'omniauth-google-oauth2', '~> 0.4.1'
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'

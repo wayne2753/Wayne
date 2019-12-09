@@ -1,0 +1,44 @@
+<% if @publisher.errors.any?%>
+<ul>
+    <%@publisher.errors.full_messages.each do |messages|%>
+    <li><%= messages%></li>
+    <%end%>
+</ul>
+<%end%>
+
+<%= form_for([:admin,publisher]) do |form| %>
+<div class="columns">
+	<div class="column is-8">
+		<div class="field">
+    	<%= form.label :name, 'name', class:"label"%>
+    	<%= form.text_field :name, class:"input"%>
+    </div>
+	</div>
+		<div class="column is-4">
+			<div class="field">
+    		<%= form.label :tel, '電話', class:"label"%>
+    	    <%= form.number_field :tel, class:"input"%>	
+    	    </div>
+		</div>
+	</div>
+<br>
+<div class="field">
+    <%= form.label :address, '地址',class:"label"%>
+    <%= form.text_area :address, class:"input"%>
+</div>
+<br>
+<div class="field">
+    <%= form.label :note, '備註',class:"label" %>
+    <%= form.number_field :note,class:"input" %>
+</div>
+<br>
+ <div class="field">
+    <%= form.check_box :online %>
+    <%= form.label :online, '營運中', class: 'checkbox' %>
+  </div>
+
+    <%= form.submit%>
+</div>
+<% end %>
+
+<%= javascript_pack_tag 'datepicker'%>

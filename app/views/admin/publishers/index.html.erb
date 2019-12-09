@@ -1,0 +1,26 @@
+<h1 class="title"><i class="fas fa-budling"></i>出版社列表</h1>
+
+<%= link_to "新增出版社", new_admin_publisher_path, class: 'button is-danger' %>
+
+<% @publisher.each do |publisher| %>
+<table class="table">
+  <thead>
+    <tr>
+      <th><abbr title="name">name</abbr></th>
+      <th><abbr title="tel">tel</abbr></th>
+      <th><abbr title="address">address</abbr></th>
+      <th><abbr title="note">note</abbr></th>
+      <th><abbr title="online">online</abbr></th>
+      <th><%= link_to "編輯", edit_admin_publisher_path(publisher) %></th>
+      <th><%= link_to "刪除", admin_publisher_path(publisher), method: 'delete' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= publisher.name %></td>
+      <td><%= publisher.tel %></td>
+      <td><%= publisher.address %></td>
+      <td><%= publisher.note %></td>
+      <td><%= publisher.online %></td>
+    </tr>
+<% end %>

@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root 'books#index'
     resources :books #8個路徑 對到 7個方法
+    resources :publishers #8個路徑 對到 7個方法
   end
 end
