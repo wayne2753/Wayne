@@ -25,7 +25,7 @@ gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Use Active Storage variant
 gem 'image_processing', '~> 1.2'
-gem 'kaminari', '~> 1.1', '>= 1.1.1'
+gem 'kaminari', '~> 1.2'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
