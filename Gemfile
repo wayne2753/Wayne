@@ -24,7 +24,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'omniauth-google-oauth2', '~> 0.4.1'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 # Use Active Storage variant
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 gem 'kaminari', '~> 1.1', '>= 1.1.1'
 gem 'devise', '~> 4.7', '>= 4.7.1'
 # Reduces boot times through caching; required in config/boot.rb
